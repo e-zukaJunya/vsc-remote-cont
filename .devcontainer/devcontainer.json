@@ -1,0 +1,53 @@
+{
+  "extensions": [
+    // python
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "visualstudioexptteam.vscodeintellicode",
+    "magicstack.magicpython",
+    // "njqdev.vscode-python-typehint",
+
+    // git
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    // "codezombiech.gitignore",
+
+    // todo
+    "gruntfuggly.todo-tree",
+    "wayou.vscode-todo-highlight",
+
+    // json
+    // "nickdemayo.vscode-json-editor",
+
+    // csv
+    // "janisdd.vscode-edit-csv",
+    "mechatroner.rainbow-csv",
+
+    // markdown
+    "yzhang.markdown-all-in-one",
+    "jebbs.markdown-extended",
+    "bierner.markdown-preview-github-styles",
+
+    // その他便利ツール
+    "ms-vsliveshare.vsliveshare",
+    "alefragnani.bookmarks",
+    "oderwat.indent-rainbow",
+    "coenraads.bracket-pair-colorizer-2",
+    // "mikestead.dotenv",
+    // "ibm.output-colorizer",
+    "ryu1kn.partial-diff",
+    "christian-kohler.path-intellisense",
+    // "timvaneker.serverless-snippets",
+    "esbenp.prettier-vscode",
+  ],
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+    // "docker-compose.yml"
+  ],
+  "service": "python",
+  "workspaceFolder": "/python",
+  "settings": {
+    "terminal.integrated.shell.linux": null
+  }
+}

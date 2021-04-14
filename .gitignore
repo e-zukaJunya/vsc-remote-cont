@@ -1,0 +1,27 @@
+# CDK package directories
+cdk/node_modules
+
+# CDK asset staging directories
+cdk/.cdk.staging
+cdk/cdk.out
+
+# CDK assets about compile ts
+cdk/*.js
+cdk/!jest.config.js
+cdk/*.d.ts
+
+# IDE settings
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/StickySelectionHighlights.xml
+.vscode
+
+# credentials
+/.env
+
+# Others
+**/__pycache__
+cdk/layer

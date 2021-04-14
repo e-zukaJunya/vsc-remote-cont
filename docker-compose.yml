@@ -1,0 +1,46 @@
+version: "3"
+services:
+  # aws:
+  #   image: localstack/localstack
+  #   ports:
+  #     - "${IP}:4566:4566"
+  #   environment:
+  #     - SERVICES=s3,apigateway,secretsmanager
+  #     - DEFAULT_REGION=ap-northeast-1
+  #     - AWS_DEFAULT_REGION=ap-northeast-1
+  #     - AWS_DEFAULT_OUTPUT=json
+  #     - AWS_ACCESS_KEY_ID=xxx
+  #     - AWS_SECRET_ACCESS_KEY=xxx
+  #   networks:
+  #     - app-net
+
+  python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    environment:
+      # ログレベル
+      - LOG_LEVEL=INFO
+      # import対象のパス追加
+      - PYTHONPATH=/python/src:/python/debug_common
+      # pycを生成させない
+      - PYTHONDONTWRITEBYTECODE=1
+      # X-Rayを無効化
+      - AWS_XRAY_SDK_ENABLED=False
+    volumes:
+      # ソースコード
+      - ./python:/python
+      # pipenv（マウントしてるディレクトリの1つ上に配置）
+      - ./Pipfile:/Pipfile
+      - ./Pipfile.lock:/Pipfile.lock
+    # コンテナ立ち上げ時に実行されるコマンド
+    # pipenvによるパッケージインストール（コンテナ内では仮想環境化せず、グローバルインストールさせる）
+    # このプロセスが終わるとコンテナが終了してしまうため、sleep infinity
+    # command: >
+    #   bash -c "cd .. && pipenv install --dev --system && sleep infinity"
+    # コンテナ内のカレントディレクトリ指定
+    working_dir: /python
+    tty: true
+    stdin_open: true
+    env_file:
+      - .env
