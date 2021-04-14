@@ -36,8 +36,8 @@ services:
     # コンテナ立ち上げ時に実行されるコマンド
     # pipenvによるパッケージインストール（コンテナ内では仮想環境化せず、グローバルインストールさせる）
     # このプロセスが終わるとコンテナが終了してしまうため、sleep infinity
-    # command: >
-    #   bash -c "cd .. && pipenv install --dev --system && sleep infinity"
+    command: >
+      bash -c "cd .. && pipenv install --dev --system && sleep infinity"
     # コンテナ内のカレントディレクトリ指定
     working_dir: /python
     tty: true
